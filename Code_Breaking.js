@@ -25,6 +25,8 @@ function compression(encryption){
     }     
     console.log(temp);
 }
+
+
 function Decompression(decryption){
     let count = 0;
     let temp  = "";
