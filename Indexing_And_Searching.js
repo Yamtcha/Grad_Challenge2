@@ -1,11 +1,10 @@
 function orchestrateUsers(users) {
-    // Add code here
+    
     var grouplist = { 
         Admin :[],
         Moderator :[],
         User : []
     }
-
     for(let i = 0 ; i < users.length ; i++){
            if (users[i].type == "Admin"){
                grouplist.Admin.push(users[i]);
@@ -16,44 +15,28 @@ function orchestrateUsers(users) {
                grouplist.User.push(users[i]);
            }
     } 
-    //console.log(grouplist);
     return grouplist;
     
 }
-//I tried using filter but was not winning at all since i am still getting used to Javascript functions so i used another alternative. 
+
 function searchUsers(orchestratedUsers, userTypes, property, value) {
+   
     var SearchArray = [];
-    for (i in userTypes){
-        switch(i) {
-            case 'Admin':{
-                        console.log(SearchArray);
-                        temp = orchestratedUsers.Admin
-                        for(let i = 0 ; i < temp.length ;i++){
-                           if(temp[i].property == value){
-                               SearchArray.push(temp);
-                            }
+    for (let i in userTypes){ // iterative throught the types of users we want to search
+        for(let element in orchestratedUsers) { 
+            if(element === i){ //compare the type of users in the orchestratedUsers array to those in usertypers array
+                  temp = orchestratedUsers[element];
+                  for(let x = 0 ; x < temp.length ;x++){
+                        if(temp[x].property == value){
+                           SearchArray.push(temp[x]);
                         }
-            }case 'User':{
-                        temp = orchestratedUsers.User
-                        for(let i = 0 ; i < temp.length ;i++){
-                           if(temp[i].property == value){
-                              SearchArray.push(temp);
-                            }
-                        }
-            }case 'Moderator':{
-                           temp = orchestratedUsers.User
-                           for(let i = 0 ; i < temp.length ;i++){
-                               if(temp[i].property == value){
-                                SearchArray.push(temp);
-                                }
-                            }
-            }
-        } 
-    } 
-    
+                   } 
+            }   
+        }
+   } 
+    console.log(SearchArray);
     return SearchArray;
 }
-
 users =[
     {
       "name": "Joe",
@@ -91,5 +74,15 @@ users =[
       "type": "Admin"
     }
   ]
-array = orchestrateUsers(users); 
-searchUsers(array,["Admin","User"],"companyId","A3100")
+
+array = orchestrateUsers(users);
+
+Admin = array.Admin;
+Moderator = array.Moderator;
+User = array.User;
+
+
+userTypes = {Admin,User}; 
+//console.log(Admin);
+
+searchUsers(array,userTypes,"companyId","A3100")
