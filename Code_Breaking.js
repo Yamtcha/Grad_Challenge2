@@ -35,8 +35,8 @@ function Decompression(decryption){
     for(let i = 0 ; i < decryption.length ; i++){
        
         //if character is a number and is the last elemement in decryption code then add it to check then iterate that number of times printing the character 
-       if(!isNaN(decryption.charAt(i) && i == decryption.length-1)){
-          
+       if(!isNaN(decryption.charAt(i)) && i === decryption.length - 1){
+
           check = check+""+decryption.charAt(i); //a23b445b45 , check = 2+""3 for charater (do this iteratively) 
           let y = parseInt(check);
 
@@ -47,6 +47,7 @@ function Decompression(decryption){
        }
        else if(!isNaN(decryption.charAt(i))){
             check = check+""+decryption.charAt(i);
+    
        }
 
        else{
@@ -63,4 +64,4 @@ function Decompression(decryption){
 
 
 compression("xxyzzzx");
-Decompression("a1b1c1d1e1");
+Decompression("a20");
