@@ -2,8 +2,8 @@ function MergeArrays(Array1 , Array2){
    
     for (let i = 0 ; i < Array1.length ; i++){
         for(let x = 0 ; x < Array2.length ; x++){
-             if(Array1[i]._id === Array2[x]._id){
-                Array2[x] = Object.assign(Array2[x],Array1[i])
+             if(Array1[i]._id === Array2[x]._id){ // Check if the _id is the same
+                Array2[x] = Object.assign(Array2[x],Array1[i]) //Merge the two arrays
              }
         } 
     }

@@ -62,5 +62,5 @@ function Decompression(decryption){
 }
 
 
-compression("ggjj");
+compression("xxyzzzx");
 Decompression("a1b1c1d1e1");
