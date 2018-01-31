@@ -35,7 +35,6 @@ function searchUsers(orchestratedUsers, userTypes, property, value) {
         }
    } 
     console.log(SearchArray);
-    return SearchArray;
 }
 users =[
     {
