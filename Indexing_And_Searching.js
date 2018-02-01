@@ -27,7 +27,7 @@ function searchUsers(orchestratedUsers, userTypes, property, value) {
             if(element === i){ //compare the type of users in the orchestratedUsers array to those in usertypers array
                   temp = orchestratedUsers[element];
                   for(let x = 0 ; x < temp.length ;x++){
-                        if(temp[x].property == value){
+                        if(temp[x][property] == value){
                            SearchArray.push(temp[x]);
                         }
                    } 
